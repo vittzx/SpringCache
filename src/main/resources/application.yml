@@ -1,1 +1,17 @@
-spring.application.name=cosso
+spring:
+  application:
+    name: cosso
+# The best practice is use env vars
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost/spring_cache
+
+server:
+  port: 8080
+  error:
+    include-stacktrace: never
+
+logging:
+  level:
+    com.springcache.cosso: debug

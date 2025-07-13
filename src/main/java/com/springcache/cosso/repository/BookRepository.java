@@ -1,4 +1,7 @@
 package com.springcache.cosso.repository;
 
-public interface BookRepository {
+import com.springcache.cosso.model.Book;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BookRepository extends JpaRepository<Book, Long> {
 }
