@@ -18,7 +18,7 @@ public class BookController {
     private static final Logger log = LoggerFactory.getLogger(BookController.class);
 
     @GetMapping
-    public ResponseEntity<List<Book>> getAllBook(){
+    public ResponseEntity<List<Book>> getAllBooks(){
         log.debug("[BOOK - CONTROLLER] STARTING /GET");
         return ResponseEntity.status(
                 HttpStatus.OK
@@ -36,6 +36,7 @@ public class BookController {
     @PostMapping
     public ResponseEntity<Void> createBook(@RequestBody BookRequestDTO newBook){
         log.debug("[BOOK - CONTROLLER] STARTING /POST {}" , newBook);
+
         return ResponseEntity.status(
                 HttpStatus.OK
         ).body(null);
