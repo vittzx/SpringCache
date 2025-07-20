@@ -3,6 +3,8 @@ package com.springcache.cosso.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "BOOKS")
 @Getter
@@ -11,7 +13,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Book {
+public class Book { // implements Serializable {
 
 
     @Id
