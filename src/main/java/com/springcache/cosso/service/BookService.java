@@ -6,6 +6,7 @@ import com.springcache.cosso.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -35,5 +36,12 @@ public class BookService  implements BookUseCase{
     public List<Book> getAllBooks() {
         log.info("[BOOK - SERVICE] Getting all books");
         return bookRepository.findAll();
+    }
+
+    @Override
+    @CacheEvict(cacheNames = "books", key = "#id")
+    public void deleteBookById(Long id) {
+        log.info("[BOOK - SERVICE] Deleting book by id {}", id);
+        bookRepository.deleteById(id);
     }
 }

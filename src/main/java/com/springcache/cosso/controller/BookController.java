@@ -58,4 +58,12 @@ public class BookController {
                 HttpStatus.CREATED
         ).body(response);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteBookById(@PathVariable Long id){
+        log.debug("[BOOK - CONTROLLER] /DELETE/{}", id);
+        bookUseCase.deleteBookById(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }

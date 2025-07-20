@@ -11,4 +11,6 @@ public interface BookUseCase {
     Book getBookById(Long id);
 
     List<Book> getAllBooks();
+
+    void deleteBookById(Long id);
 }
