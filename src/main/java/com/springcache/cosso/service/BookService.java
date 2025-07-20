@@ -6,6 +6,7 @@ import com.springcache.cosso.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,6 +25,7 @@ public class BookService  implements BookUseCase{
     }
 
     @Override
+    @Cacheable(cacheNames = "books", key = "#id")
     public Book getBookById(Long id) {
         log.info("[BOOK - SERVICE] Getting book by id {}", id);
         return bookRepository.getReferenceById(id);
