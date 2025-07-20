@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class BookMapper {
 
-    BookResponseDTO toResponseDTO(Book book){
+    public BookResponseDTO toResponseDTO(Book book){
         return BookResponseDTO
                 .builder()
                 .id(book.getId())
@@ -22,7 +22,7 @@ public class BookMapper {
                 .build();
     }
 
-    Book toBook(BookRequestDTO requestDTO){
+    public Book toBook(BookRequestDTO requestDTO){
         return Book
                 .builder()
                 .id(requestDTO.getId())
